@@ -191,6 +191,8 @@ const scooby = new Student({
   grade: 100
 });
 
+console.log(`--------------LAMBDA CLASSES--------------`);
+
 fred.speak();
 fred.demo("Javascript-IV");
 fred.grade(scooby, "Javascript-IV");
