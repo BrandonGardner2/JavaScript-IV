@@ -114,6 +114,17 @@ class Student extends Person {
   sprintChallenge(subject) {
     console.log(`${this.name} has begun sprint challenge on ${subject}.`);
   }
+  graduate() {
+    if (this.grade >= 70) {
+      console.log(
+        `Congratulations ${this.name}, you have finished Lambda school!`
+      );
+    } else {
+      console.log(
+        `Sorry ${this.name}, you need to study more before you can graduate.`
+      );
+    }
+  }
 }
 // #### Project Mananger
 // * Now that we have instructors and students, we'd be nowhere without our PM's
@@ -197,3 +208,4 @@ fred.updateGrade(scooby);
 fred.updateGrade(scooby);
 fred.updateGrade(scooby);
 fred.updateGrade(scooby);
+scooby.graduate();
