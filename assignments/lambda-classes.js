@@ -39,6 +39,49 @@ class Instructor extends Person {
   grade(student, subject) {
     console.log(`${student.name} receives a perfect score on ${subject}.`);
   }
+  updateGrade(student) {
+    let x = Math.floor(Math.random() * 2);
+    let change = Math.floor(Math.random() * 20);
+    if (x === 1) {
+      if (student.grade >= 100) {
+        console.log(
+          `${student.name} has a ${
+            student.grade
+          } in the class. It cannot go higher.`
+        );
+      } else {
+        student.grade += change;
+        if (student.grade > 100) {
+          student.grade = 100;
+        }
+        console.log(
+          `${student.name} had ${change} added to their grade! It is now ${
+            student.grade
+          }`
+        );
+      }
+    } else {
+      if (student.grade <= 0) {
+        console.log(
+          `${student.name} has a ${
+            student.score
+          } in the class. It cannot go lower.`
+        );
+      } else {
+        student.grade -= change;
+        if (student.grade < 0) {
+          student.grade = 0;
+        }
+        console.log(
+          `${
+            student.name
+          } had ${change} subtracted from their grade! It is now ${
+            student.grade
+          }`
+        );
+      }
+    }
+  }
 }
 // #### Student
 // * Now we need some students!
@@ -56,7 +99,8 @@ class Student extends Person {
     super(props);
     (this.previousBackground = props.previousBackground),
       (this.className = props.className),
-      (this.favSubjects = props.favSubjects);
+      (this.favSubjects = props.favSubjects),
+      (this.grade = props.grade);
   }
 
   listsSubjects() {
@@ -132,7 +176,8 @@ const scooby = new Student({
   catchPhrase: `Ruh roh!`,
   previousBackground: "Solving mysteries",
   className: "WEB17",
-  favSubjects: ["Sandwiches", "Mysteries", "Shaggy"]
+  favSubjects: ["Sandwiches", "Mysteries", "Shaggy"],
+  grade: 100
 });
 
 fred.speak();
@@ -145,3 +190,10 @@ willma.debugCode(scooby, "Javascript-IV");
 scooby.listsSubjects();
 scooby.PRAssignment("Javascript-IV");
 scooby.sprintChallenge("Javascript Fundamentals");
+
+fred.updateGrade(scooby);
+fred.updateGrade(scooby);
+fred.updateGrade(scooby);
+fred.updateGrade(scooby);
+fred.updateGrade(scooby);
+fred.updateGrade(scooby);
